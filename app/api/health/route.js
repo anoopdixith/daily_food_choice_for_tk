@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
+import { Pool } from 'pg';
 
-function hasPostgresEnv() {
-  return !!(
+function getDbUrl() {
+  return (
     process.env.POSTGRES_URL ||
     process.env.POSTGRES_URL_NON_POOLING ||
     process.env.POSTGRES_PRISMA_URL ||
@@ -19,19 +20,23 @@ function getPSTDateKey() {
 }
 
 export async function GET() {
-  const envDetected = hasPostgresEnv();
+  const url = getDbUrl();
   const dateKey = getPSTDateKey();
 
-  if (!envDetected) {
-    return NextResponse.json({ backend: 'file', envDetected, dateKey, ok: true });
+  if (!url) {
+    return NextResponse.json({ backend: 'file', envDetected: false, dateKey, ok: true });
   }
 
+  let client;
   try {
-    const { sql } = await import('@vercel/postgres');
-    await sql`SELECT 1 as ok`;
-    return NextResponse.json({ backend: 'postgres', envDetected, dateKey, ok: true });
+    const pool = new Pool({ connectionString: url, max: 1 });
+    client = await pool.connect();
+    await client.query('SELECT 1');
+    client.release();
+    await pool.end();
+    return NextResponse.json({ backend: 'postgres', envDetected: true, dateKey, ok: true });
   } catch (err) {
-    return NextResponse.json({ backend: 'postgres', envDetected, dateKey, ok: false, error: String(err?.message || err) }, { status: 500 });
+    try { client?.release?.(); } catch {}
+    return NextResponse.json({ backend: 'postgres', envDetected: true, dateKey, ok: false, error: String(err?.message || err) }, { status: 500 });
   }
 }
-
