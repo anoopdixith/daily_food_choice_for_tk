@@ -16,12 +16,22 @@ function getDateKeyPST() {
   return `${y}-${m}-${day}`;
 }
 
+function getTomorrowDateKeyPST() {
+  const d = getPSTDateObj();
+  d.setDate(d.getDate() + 1);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
 export default function HomePage() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [menu, setMenu] = useState({ breakfast: null, lunch: null, source: null });
+  const [menuTomorrow, setMenuTomorrow] = useState({ breakfast: null, lunch: null, source: null });
 
   function lunchDetails(l) {
     if (!l) return [];
@@ -85,6 +95,14 @@ export default function HomePage() {
       } catch {
         setMenu({ breakfast: null, lunch: null, source: null });
       }
+      try {
+        const tomorrowKey = getTomorrowDateKeyPST();
+        const res2 = await fetch(`/api/menu?date=${tomorrowKey}`, { cache: 'no-store' });
+        const data2 = await res2.json();
+        setMenuTomorrow({ breakfast: data2.breakfast ?? null, lunch: data2.lunch ?? null, source: data2.source || null });
+      } catch {
+        setMenuTomorrow({ breakfast: null, lunch: null, source: null });
+      }
     }
     loadMenu();
   }, []);
@@ -139,6 +157,7 @@ export default function HomePage() {
             </select>
           </div>
         </div>
+        
 
         <div className="row">
           <div className="field">
@@ -205,6 +224,30 @@ export default function HomePage() {
           </div>
         </div>
       </form>
+      <div className="card" style={{ marginTop: 16 }}>
+        <div className="section-title">Tomorrow's menu at school</div>
+        <div className="row">
+          <div className="field">
+            <span className="label">Breakfast</span>
+            <div>{menuTomorrow.breakfast || 'Not available'}</div>
+          </div>
+          <div className="field">
+            <span className="label">Lunch</span>
+            {menuTomorrow.lunch ? (
+              <div className="menu-lines">
+                {lunchDetails(menuTomorrow.lunch).map((it, idx) => (
+                  <div className="menu-line" key={idx}>
+                    <span className={`menu-label ${it.kind}`}>{it.label}:</span>
+                    <span className="menu-value">{it.value || 'None'}</span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div>Not available</div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
