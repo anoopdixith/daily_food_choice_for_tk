@@ -42,6 +42,7 @@ export async function POST(req) {
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error('POST /api/choices failed:', err);
-    return NextResponse.json({ error: 'Server error saving choice' }, { status: 500 });
+    const msg = err?.message || 'Server error saving choice';
+    return NextResponse.json({ error: msg }, { status: 500 });
   }
 }
