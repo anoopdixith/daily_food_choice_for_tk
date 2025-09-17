@@ -1,0 +1,64 @@
+{
+  "2025-09-16": {
+    "Ava": {
+      "snack": "School Snack",
+      "lunch": "School lunch",
+      "schoolLunchOption": "Option 1 (Meat)",
+      "milk": true
+    },
+    "Emma": {
+      "snack": "School Snack",
+      "lunch": "School lunch",
+      "schoolLunchOption": "Option 3 (Deli)",
+      "milk": false
+    },
+    "Lucas": {
+      "snack": "School Snack",
+      "lunch": "School lunch",
+      "schoolLunchOption": "Option 3 (Deli)",
+      "milk": true
+    },
+    "Sophia": {
+      "snack": "School Snack",
+      "lunch": "Home lunch",
+      "schoolLunchOption": null,
+      "milk": true
+    },
+    "Amelia": {
+      "snack": "School Snack",
+      "lunch": "School lunch",
+      "schoolLunchOption": "Option 3 (Deli)",
+      "milk": false
+    },
+    "Abigail": {
+      "snack": "Home Snack",
+      "lunch": "School lunch",
+      "schoolLunchOption": "Option 3 (Deli)",
+      "milk": true
+    },
+    "Harper": {
+      "snack": "School Snack",
+      "lunch": "Home lunch",
+      "schoolLunchOption": null,
+      "milk": true
+    },
+    "Liam": {
+      "snack": "School Snack",
+      "lunch": "Home lunch",
+      "schoolLunchOption": null,
+      "milk": true
+    },
+    "Mia": {
+      "snack": "Home Snack",
+      "lunch": "School lunch",
+      "schoolLunchOption": "Option 3 (Deli)",
+      "milk": false
+    },
+    "Noah": {
+      "snack": "Home Snack",
+      "lunch": "Home lunch",
+      "schoolLunchOption": null,
+      "milk": false
+    }
+  }
+}
