@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
           <Header />
         </header>
         <main className="container">{children}</main>
-        <footer className="footer">© {new Date().getFullYear()} Daily Food Choice (By Anoop Dixith)</footer>
+        <footer className="footer">© {new Date().getFullYear()} Daily Food Choice (By a proud Sedgwick parent)</footer>
       </body>
     </html>
   );
