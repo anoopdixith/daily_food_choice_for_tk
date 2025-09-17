@@ -21,6 +21,30 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [menu, setMenu] = useState({ breakfast: null, lunch: null, source: null });
+
+  function lunchDetails(l) {
+    if (!l) return [];
+    const lower = String(l).toLowerCase();
+    if (lower.includes('no school')) return [{ label: 'Status', value: 'No School', kind: 'status' }];
+    return String(l)
+      .split(' | ')
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .map((part) => {
+        const [rawLabel, ...rest] = part.split(':');
+        const label = (rawLabel || '').trim();
+        const value = rest.join(':').trim();
+        const kind = label.toLowerCase().includes('meat')
+          ? 'meat'
+          : label.toLowerCase().includes('vegetarian')
+          ? 'vegetarian'
+          : label.toLowerCase().includes('deli')
+          ? 'deli'
+          : 'status';
+        return { label, value, kind };
+      });
+  }
 
   // Form state
   const [student, setStudent] = useState('');
@@ -49,6 +73,20 @@ export default function HomePage() {
       }
     }
     load();
+  }, []);
+
+  useEffect(() => {
+    async function loadMenu() {
+      try {
+        const dateKey = getDateKeyPST();
+        const res = await fetch(`/api/menu?date=${dateKey}`, { cache: 'no-store' });
+        const data = await res.json();
+        setMenu({ breakfast: data.breakfast ?? null, lunch: data.lunch ?? null, source: data.source || null });
+      } catch {
+        setMenu({ breakfast: null, lunch: null, source: null });
+      }
+    }
+    loadMenu();
   }, []);
 
   async function onSubmit(e) {
@@ -140,6 +178,31 @@ export default function HomePage() {
           {loading && <span className="meta">Loading students…</span>}
           {error && <span className="meta" style={{ color: '#b91c1c' }}>{error}</span>}
           {success && <span className="meta" style={{ color: '#166534' }}>{success}</span>}
+        </div>
+
+        <div className="card" style={{ marginTop: 16 }}>
+          <div className="section-title">Today's menu at school</div>
+          <div className="row">
+            <div className="field">
+              <span className="label">Breakfast</span>
+              <div>{menu.breakfast || 'Not available'}</div>
+            </div>
+            <div className="field">
+              <span className="label">Lunch</span>
+              {menu.lunch ? (
+                <div className="menu-lines">
+                  {lunchDetails(menu.lunch).map((it, idx) => (
+                    <div className="menu-line" key={idx}>
+                      <span className={`menu-label ${it.kind}`}>{it.label}:</span>
+                      <span className="menu-value">{it.value || 'None'}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div>Not available</div>
+              )}
+            </div>
+          </div>
         </div>
       </form>
     </div>

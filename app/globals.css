@@ -115,3 +115,12 @@ tr:last-child td { border-bottom: none; }
 .footer { text-align: center; color: var(--muted); font-size: 13px; padding: 24px 0; }
 
 @media (max-width: 700px) { .row { grid-template-columns: 1fr; } }
+
+/* Menu lines styling */
+.menu-lines { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+.menu-line { display: flex; gap: 8px; align-items: baseline; }
+.menu-label { font-weight: 700; }
+.menu-label.meat { color: #b91c1c; }
+.menu-label.vegetarian { color: #166534; }
+.menu-label.deli { color: #1d4ed8; }
+.menu-label.status { color: var(--text); }
