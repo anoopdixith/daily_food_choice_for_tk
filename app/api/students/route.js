@@ -5,6 +5,11 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const students = await getStudents();
-  return NextResponse.json({ students });
+  try {
+    const students = await getStudents();
+    return NextResponse.json({ students });
+  } catch (err) {
+    console.error('GET /api/students failed:', err);
+    return NextResponse.json({ error: 'Server error fetching students' }, { status: 500 });
+  }
 }
