@@ -39,7 +39,7 @@ body {
 .container {
   max-width: 900px;
   margin: 24px auto;
-  padding: 0 16px 48px;
+  padding: 0 16px 16px;
 }
 
 .card {
@@ -112,7 +112,7 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--bo
 th { background: #f3f4f6; color: #111827; font-weight: 600; }
 tr:last-child td { border-bottom: none; }
 
-.footer { text-align: center; color: var(--muted); font-size: 13px; padding: 24px 0; }
+.footer { text-align: center; color: var(--muted); font-size: 13px; padding: 12px 0; }
 
 @media (max-width: 700px) { .row { grid-template-columns: 1fr; } }
 
