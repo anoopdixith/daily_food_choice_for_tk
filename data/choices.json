@@ -59,6 +59,12 @@
       "lunch": "Home lunch",
       "schoolLunchOption": null,
       "milk": false
+    },
+    "Henry": {
+      "snack": "School Snack",
+      "lunch": "Home lunch",
+      "schoolLunchOption": null,
+      "milk": true
     }
   }
 }

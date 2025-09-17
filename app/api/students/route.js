@@ -5,7 +5,6 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const students = getStudents();
+  const students = await getStudents();
   return NextResponse.json({ students });
 }
-

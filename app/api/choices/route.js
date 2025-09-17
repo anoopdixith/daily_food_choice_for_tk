@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getChoicesByDate, getStudents, saveChoice } from '../../../lib/db';
+import { getAllForDate, saveChoice } from '../../../lib/db';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -9,9 +9,7 @@ export async function GET(req) {
   const date = searchParams.get('date');
   if (!date) return NextResponse.json({ error: 'Missing date' }, { status: 400 });
 
-  const students = getStudents();
-  const map = getChoicesByDate(date);
-  const choices = students.map((s) => ({ student: s, ...(map[s] || {}) }));
+  const choices = await getAllForDate(date);
   return NextResponse.json({ date, choices });
 }
 
@@ -34,6 +32,6 @@ export async function POST(req) {
     milk,
   };
 
-  saveChoice(date, student, normalized);
+  await saveChoice(date, student, normalized);
   return NextResponse.json({ ok: true });
 }

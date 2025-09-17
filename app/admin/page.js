@@ -19,7 +19,7 @@ export const dynamic = 'force-dynamic';
 export default async function AdminPage() {
   const dateKey = getPSTDateKey();
   const displayDate = getPSTDisplay();
-  const rows = getAllForDate(dateKey);
+  const rows = await getAllForDate(dateKey);
 
   return (
     <div className="card">
