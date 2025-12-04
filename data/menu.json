@@ -64,5 +64,31 @@
   "2025-11-25": { "breakfast": "No School", "lunch": "No School" },
   "2025-11-26": { "breakfast": "No School", "lunch": "No School" },
   "2025-11-27": { "breakfast": "No School", "lunch": "No School" },
-  "2025-11-28": { "breakfast": "No School", "lunch": "No School" }
+  "2025-11-28": { "breakfast": "No School", "lunch": "No School" },
+  "2025-12-01": { "breakfast": "Snack'n Waffles", "lunch": "Meat: None | Vegetarian: Cheese Ravioli Dippers | Deli: Sunflower Seeds and Chickpea Dip Protein Box" },
+  "2025-12-02": { "breakfast": "Freshly Baked Breakfast Scone", "lunch": "Meat: Chicken Sandwich | Vegetarian: Veggie Burger | Deli: Cheese Sandwich" },
+  "2025-12-03": { "breakfast": "Banana Sliced Bread", "lunch": "Meat: None | Vegetarian: Deep Dish Cheese Pizza | Deli: Turkey and Cheese Sandwich" },
+  "2025-12-04": { "breakfast": "Cereal", "lunch": "Meat: Chicken Alfredo Pasta | Vegetarian: Veggie Alfredo Pasta | Deli: Veggie Hummus Sandwich" },
+  "2025-12-05": { "breakfast": "Bagel and Cream Cheese", "lunch": "Meat: Popcorn Chicken and Tots | Vegetarian: Veggie Nuggets and Tater Tots | Deli: Turkey and Cheese Sandwich" },
+  
+  "2025-12-08": { "breakfast": "Snack'n Waffles", "lunch": "Meat: Beef Cheeseburger | Vegetarian: Veggie Burger | Deli: Sunflower Seeds and Chickpea Dip Protein Box" },
+  "2025-12-09": { "breakfast": "Freshly Baked Breakfast Scone", "lunch": "Meat: Mini Corn Dogs and Tater Tots | Vegetarian: Veggie Nuggets and Tater Tots | Deli: Veggie Hummus Sandwich" },
+  "2025-12-10": { "breakfast": "Banana Sliced Bread", "lunch": "Meat: None | Vegetarian: Deep Dish Cheese Pizza | Deli: Turkey and Cheese Sandwich" },
+  "2025-12-11": { "breakfast": "Cereal", "lunch": "Meat: Coconut Curry Chicken and Naan | Vegetarian: Coconut Curry Chickpeas and Naan | Deli: Veggie Hummus Sandwich" },
+  "2025-12-12": { "breakfast": "Bagel and Cream Cheese", "lunch": "Meat: Winter Wonderland Chicken Nuggets and Potato Smiles | Vegetarian: Veggie Nuggets and Potato Smiles | Deli: Turkey and Cheese Sandwich" },
+  
+  "2025-12-15": { "breakfast": "Snack'n Waffles", "lunch": "Meat: None | Vegetarian: Cheese Ravioli Dippers | Deli: Sunflower Seeds and Chickpea Dip Protein Box" },
+  "2025-12-16": { "breakfast": "Mix It Up Breakfast", "lunch": "Meat: Chicken Sandwich | Vegetarian: Veggie Burger | Deli: Veggie Hummus Sandwich" },
+  "2025-12-17": { "breakfast": "Banana Sliced Bread", "lunch": "Meat: None | Vegetarian: Deep Dish Cheese Pizza | Deli: Turkey and Cheese Sandwich" },
+  "2025-12-18": { "breakfast": "Cereal", "lunch": "Meat: Chicken Alfredo Pasta | Vegetarian: Veggie Alfredo Pasta | Deli: Veggie Hummus Sandwich" },
+  "2025-12-19": { "breakfast": "Bagel and Cream Cheese", "lunch": "Mix It Up Lunch Day!" },
+  
+  "2025-12-22": { "breakfast": "No School", "lunch": "No School" },
+  "2025-12-23": { "breakfast": "No School", "lunch": "No School" },
+  "2025-12-24": { "breakfast": "No School", "lunch": "No School" },
+  "2025-12-25": { "breakfast": "No School", "lunch": "No School" },
+  "2025-12-26": { "breakfast": "No School", "lunch": "No School" },
+  "2025-12-29": { "breakfast": "No School", "lunch": "No School" },
+  "2025-12-30": { "breakfast": "No School", "lunch": "No School" },
+  "2025-12-31": { "breakfast": "No School", "lunch": "No School" }
 }
